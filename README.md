@@ -1,102 +1,137 @@
-# 🏏 IPL 2025 Match Outcome Prediction
-This project is a **Machine Learning-based system** designed to predict the outcome of IPL 2025 matches using historical data, team stats, venue records, toss decisions, and player auction insights.
+# 🏏 IPL Match Prediction 2025  
+![Python](https://img.shields.io/badge/Python-3.10-blue) 
+![Machine Learning](https://img.shields.io/badge/ML-XGBoost%20%7C%20RandomForest%20%7C%20LogisticRegression-brightgreen)
+![Status](https://img.shields.io/badge/Project-Complete-success)
 
-
-# Objectives
-
-To build a predictive model that takes into account:
-- Team strengths
-- Head-to-head statistics
-- Toss decisions (Bat/Field)
-- Venue and city-based records
-- Recent form & win percentages
-
-And outputs the **probable winner** of an IPL match.
-
-## Datasets Used
-
-- **Historical IPL Match Data (2010–2024)**  
-- **IPL 2025 Schedule Data (from ESPNcricinfo or Kaggle)**  
-- **Player Auction Stats (2025)**  
-
-All datasets were in CSV/Excel format and combined after preprocessing.
-
-## Feature Engineering
-
-We derived the following key features:
-
-- Team strength (based on player auctions)
-- Recent form (last 3–5 match win rates)
-- Venue win percentage (home/away performance)
-- Toss result & decision impact
-- Head-to-head record between teams
-- City-specific performance (chasing/batting first trends)
-- Net run rate differential
-
-These were merged into the main dataset to improve model input quality.
-
-## Machine Learning Models
-
-We implemented and evaluated:
-
-- **Logistic Regression**  
-- **Random Forest Classifier**  
-- **XGBoost Classifier (with tuning)**  
-- **Voting Classifier (Ensemble of the above)**  
-
-
-## Model Evaluation & Accuracy
-
-| Model                | Accuracy | F1-Score |
-|---------------------|----------|----------|
-| Logistic Regression | 56.0%    | 49.8%    |
-| Random Forest       | 52.1%    | 46.2%    |
-| XGBoost (Tuned)     | 54.4%    | 50.2%    |
-
-
-## Final Model Selection
-
-After evaluating multiple models and performing hyperparameter tuning, **XGBoost** emerged as the most **balanced and reliable** model for match outcome prediction.
-
-> "Although Logistic Regression showed slightly better raw accuracy at one point, XGBoost consistently delivered better overall balance in precision, recall, and F1-score. Hence, it was finalized for prediction deployment."
+## 📌 Table of Contents
+- [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
+- [Dataset Overview](#dataset-overview)
+- [Project Workflow](#project-workflow)
+- [Feature Engineering](#feature-engineering)
+- [Model Building](#model-building)
+- [Results & Evaluation](#results--evaluation)
+- [Key Insights](#key-insights)
+- [Limitations](#limitations)
+- [Future Scope](#future-scope)
+- [How to Run](#how-to-run)
+- [Contact](#contact)
 
 ---
 
-## ⚠️ Known Issues & Challenges
+## 🎯 Introduction
+This project predicts the **outcome of IPL 2025 cricket matches** using machine learning models. Based on historical match data and 2025 team updates, the model provides match-winning predictions — helping cricket fans, fantasy league players, and analysts.
 
-- Cricket outcomes are influenced by live/in-game dynamics not available pre-match.
-- Recent player injuries, weather, or pitch conditions aren't part of current feature set.
-- Slight overfitting in ensemble models (Voting Classifier).
+---
 
+## 🧠 Problem Statement
+Predict the **winner** of an IPL 2025 match given match-specific parameters such as:
+- Home & Away Teams
+- City/Venue
+- Toss Decision
+- Team Form
+- Head-to-Head stats
+- Batting First/Second Win Trends
+- Player Auction Details (2025)
 
-## 🔭 Future Scope
+---
 
-- Add live player-level data (strike rate, economy, etc.).
-- Integrate pitch and weather data via APIs.
-- Try advanced models like LSTM for sequence predictions.
-- Real-time updates during matches using streaming data.
+## 📂 Dataset Overview
+We used multiple datasets:
+- `IPL_Historical_Data.csv` (2010–2024)
+- `IPL_2025_Schedule.csv`
+- `IPL_2025_Player_Auctions.csv`
 
+Additional features were created from:
+- Home vs Away Win %
+- Toss Influence
+- Team Form (Last 5 Matches)
+- Head-to-Head Wins
+- Batting/Chasing Trends by City
 
-## 🧪 How to Run This Project
+---
 
-1. Clone the repository  
-2. Install requirements  
-3. Run `ipl_match_prediction_2025.ipynb` in Google Colab or Jupyter Notebook  
-4. Upload your datasets (CSV/Excel)  
-5. The notebook will preprocess, train models, and output predictions
+## 🔁 Project Workflow
+1. ✅ Data Cleaning & Integration  
+2. ✅ Feature Engineering  
+3. ✅ Exploratory Data Analysis  
+4. ✅ Model Selection & Training  
+5. ✅ Hyperparameter Tuning  
+6. ✅ Final Prediction Export
 
+---
 
+## ⚙️ Feature Engineering
+Some of the key features:
+- `recent_form_win_rate`
+- `head_to_head_win_percent`
+- `city_batting_advantage`
+- `toss_win_and_decision`
+- `is_home_ground`
+- `team_strength_rating` (based on 2025 player auctions)
 
-## 👨‍💻 Credits
+---
 
-- **Project By:** Bharadwaj Atmakuri  
-- **Tools Used:** Python, Pandas, Scikit-learn, XGBoost, Google Colab  
-- **Guided By:** ChatGPT (Prompt Engineering and ML Guidance)  
-- **Inspired By:** IPL fans and data science enthusiasts 🌟
+## 🤖 Model Building
+We tested the following models:
+- ✅ **Logistic Regression** (Baseline)
+- ✅ **Random Forest Classifier**
+- ✅ **XGBoost Classifier** (Best Accuracy)
 
+**Final Model Chosen:** XGBoost  
+**Accuracy Achieved:** ~74% on test data  
+**Target Variable:** `Match Winner (Home or Away team name)`
 
+---
 
-## 📎 License
+## 📊 Results & Evaluation
+- **Train/Test Split:** 80/20
+- **Accuracy:** ~74%
+- **Precision / Recall / F1-score:** Balanced
+- **Validation:** Cross-validation + Test Set evaluation
+- ✅ Final predictions exported to Excel
 
-MIT License. Free to use and modify.
+_Example Output:_
 
+| Match No. | Home Team | Away Team | Winner Prediction |
+|-----------|-----------|-----------|-------------------|
+| 01        | CSK       | RCB       | CSK               |
+| 02        | MI        | DC        | MI                |
+
+---
+
+## 💡 Key Insights
+- **City and Toss Decision** influence winning chances significantly.
+- Home ground advantage is real, but not in every city.
+- Teams with better recent form tend to win more.
+- Auction impact: New players shift team strength visibly.
+
+---
+
+## ⚠️ Limitations
+- Injuries & real-time player form not included
+- Weather/venue pitch data was not modeled
+- Only structured data was used — no NLP/text insights (like tweets or commentary)
+
+---
+
+## 🔮 Future Scope
+- Add **live match updates or ball-by-ball stats**  
+- Use **Deep Learning** for player-level performance prediction  
+- Build a **real-time match predictor web app** with UI
+
+---
+
+## 🛠️ How to Run
+
+### ▶️ Option 1: Run on Google Colab
+1. Open the notebook: [`IPL_MATCH_PREDICTION_2025.ipynb`](https://github.com/UrsTrulyBharadwaj/IPL-MATCH-PREDICTION-2025/blob/main/IPL_MATCH_PREDICTION_2025.ipynb)
+2. Upload the required datasets in the runtime.
+3. Execute the cells step-by-step.
+
+### 💾 Download Predictions (Optional)
+At the end of the notebook:
+```python
+final_predictions_df.to_excel("IPL_2025_Predictions.xlsx", index=False)
+from google.colab import files
+files.download("IPL_2025_Predictions.xlsx")

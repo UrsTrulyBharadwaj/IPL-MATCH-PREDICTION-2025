@@ -135,3 +135,14 @@ At the end of the notebook:
 final_predictions_df.to_excel("IPL_2025_Predictions.xlsx", index=False)
 from google.colab import files
 files.download("IPL_2025_Predictions.xlsx")
+
+## 👨‍💻 Credits
+
+- **Project By:** *Bharadwaj Atmakuri*  
+- **Course:** *MBA Business Analytics (JNTU)*  
+- **Tools Used:** *Python, Pandas, Scikit-learn, XGBoost, Matplotlib, Google Colab*  
+- **Dataset Sources:** *Kaggle IPL Data, Custom 2025 Schedule*  
+- **Guided By:** *ChatGPT (Prompt Engineering + ML Support)*  
+- **Inspired By:** *IPL Fans, Cricket Analytics & Data Science Enthusiasts* 🌟  
+- **GitHub:** [@UrsTrulyBharadwaj](https://github.com/UrsTrulyBharadwaj)  
+- **Contact:** [itsbharadwajatmakuri@gmail.com]

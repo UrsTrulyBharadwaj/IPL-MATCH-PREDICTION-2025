@@ -129,13 +129,6 @@ _Example Output:_
 2. Upload the required datasets in the runtime.
 3. Execute the cells step-by-step.
 
-### 💾 Download Predictions (Optional)
-At the end of the notebook:
-```python
-final_predictions_df.to_excel("IPL_2025_Predictions.xlsx", index=False)
-from google.colab import files
-files.download("IPL_2025_Predictions.xlsx")
-
 ## 👨‍💻 Credits
 
 - **Project By:** *Bharadwaj Atmakuri*  
@@ -146,3 +139,13 @@ files.download("IPL_2025_Predictions.xlsx")
 - **Inspired By:** *IPL Fans, Cricket Analytics & Data Science Enthusiasts* 🌟  
 - **GitHub:** [@UrsTrulyBharadwaj](https://github.com/UrsTrulyBharadwaj)  
 - **Contact:** [itsbharadwajatmakuri@gmail.com]
+  
+### 💾 Download Predictions (Optional)
+At the end of the notebook:
+```python
+final_predictions_df.to_excel("IPL_2025_Predictions.xlsx", index=False)
+from google.colab import files
+files.download("IPL_2025_Predictions.xlsx")
+
+
+
